@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+	<db name="subscribers">
+		<table name="subscribers">
+			<field name="id" type="autoincrement" required="required" />
+			<field name="email" label="E-mail" type="string" required="required" />
+			<field name="comment" label="Комментарий" type="string" />
+	
+			
+			<field name="extra" type="json" label="Дополнительные сведения" />
+			<field name="created" type="timestamp" />
+			<field name="modified" type="timestamp" />
+			<field name="isDeleted" type="timestamp" />
+		</table>
+		<table name="history">
+			<field name="db" type="string" />
+			<field name="id" type="autoincrement" required="required" />
+			<field name="objectId" type="number" required="required" />
+			<field name="subjectId" type="number" required="required" />
+			<field name="subjectIP" type="string" required="required" />
+			<field name="action" type="string" required="required" />
+			<field name="changes_from" type="string" />
+			<field name="changes_to" type="string" required="required" />
+			<field name="comment" type="string" />
+			<field name="timestamp" type="timestamp" />
+            
+			<field name="created" type="timestamp" />
+			<field name="modified" type="timestamp" />
+			<field name="isDeleted" type="timestamp" />
+		</table>
+	</db>
+</database>

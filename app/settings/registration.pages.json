@@ -1,0 +1,123 @@
+{"pages":[
+	{
+		"uri": "pub/form/add/application",
+		"title": "Регистрация",
+        "actions":[ "form_add_application" ],
+		"templates": {
+			"msg": "message.block.htm",
+			"content": "add_application_form.htm",
+			"page": "page_public.htm"
+		}
+	},
+	{
+		"uri": "add/application",
+		"title": "",
+		"params": {
+			"action": {"type": "string", "source": "get",  "regexp":"/(add)\\/(application)/", "pos": 1},
+			"object_name": {"type": "string", "source": "get",  "regexp":"/(add)\\/(application)/", "pos": 2},
+            "id": {"type": "string", "source": "post"},
+			"to": {"type": "array", "source": "post"},
+			"from": {"type": "array", "source": "post"},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "add_application" ]
+	},
+	{
+		"uri": "process/application",
+		"title": "",
+		"params": {
+			"action": {"type": "string", "source": "get",  "regexp":"/(process)\\/(application)\\/(\\d+)/", "pos": 1},
+			"object_name": {"type": "string", "source": "get",  "regexp":"/(process)\\/(application)\\/(\\d+)/", "pos": 2},
+			"id": {"type": "string", "source": "get",  "regexp":"/(process)\\/(application)\\/(\\d+)/", "pos": 3},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "process_application" ]
+	},
+	{
+		"uri": "registration/success",
+		"title": "Заявка на регистрацию приянята",
+		"params": {
+			"id": {"type": "string", "source": "get",  "regexp":"/registration\\/success\\/(\\d+)/", "pos": 1},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "registration_success" ],
+		"templates": {
+			"msg": "message.block.htm",
+			"content": "registration.success.htm",
+			"page": "page.htm"
+		}
+	},
+	{
+		"uri": "confirm_email",
+		"title": "Подтверждение e-mail",
+        "params": {
+			"action": {"type": "string", "source": "get",  "regexp":"/(confirm)_(email)\\/?([^\\/]*)/", "pos": 1},
+			"object": {"type": "string", "source": "get",  "regexp":"/(confirm)_(email)\\/?([^\\/]*)/" , "pos": 2},
+			"id": {"type": "string", "source": "get",  "regexp":"/(confirm)_(email)\\/?([^\\/]*)/" , "pos": 3},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "registration_confirm_email" ],
+		"templates": {
+			"msg": "message.block.htm",
+			"content": "registration.success.htm",
+			"page": "page.htm"
+		}
+	},
+	{
+		"uri": "applications",
+		"title": "Заявки на регистрацию",
+        "templates": {
+			"msg": "message.block.htm",
+			"content": "registration.applications_list.htm",
+            "page": "page.htm"
+        },
+		"params": {
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "show_applications" ],
+		"acl": [ "access", "adm" ]
+	},
+	{
+		"uri": "form/approve/application",
+		"title": "Одобрение заявки на регистрацию",
+		"params": {
+			"id": {"type": "string", "source": "get",  "regexp":"/approve\\/application\\/(\\d+)/", "pos": 1},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "form_approve_application" ],
+		"templates": {
+			"msg": "message.block.htm",
+			"approve_application": "registration.approve_application_form.htm",
+			"page": "page.htm"
+		},
+		"acl": [ "access", "adm" ]
+	},
+	{
+		"uri": "approve_application",
+		"title": "Одобрение заявки на регистрацию",
+		"params": {
+			"action": {"type": "string", "source": "get",  "regexp":"/(approve)_(application)/", "pos": 1},
+			"object": {"type": "string", "source": "get",  "regexp":"/(approve)_(application)/", "pos": 2},
+            "id": {"type": "string", "source": "post"},
+			"to": {"type": "array", "source": "post"},
+			"from": {"type": "array", "source": "post"},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "approve_application" ],
+		"acl": [ "access", "adm" ]
+	},
+	{
+		"uri": "send_registration_approval",
+		"title": "Отправка письма пользователю с регистрационными данными",
+		"params": {
+			"login": {"type": "string", "source": "post"},
+			"name": {"type": "string", "source": "post"},
+			"email": {"type": "string", "source": "post"},
+			"email_token": {"type": "string", "source": "post"},
+			"key": {"type": "string", "source": "post"},
+			"msg": {"type": "json", "source": "session"}
+		},
+        "actions":[ "send_registration_approval" ],
+		"acl": [ "access", "manager" ]
+	}
+]}

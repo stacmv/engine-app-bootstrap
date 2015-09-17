@@ -1,0 +1,14 @@
+{
+    "name": "optimit/engine-app-bootstrap",
+    "description": "Bootstrap application for general website on optimit 'engine' framework.",
+	"minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Vyacheslav Matsnev",
+            "email": "stacmv@gmail.com"
+        }
+    ],
+    "require": {
+        "optimit/engine": "dev-master"
+    }
+}

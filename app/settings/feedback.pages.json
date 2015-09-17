@@ -1,0 +1,40 @@
+{"pages":[
+	{
+		"uri": "api/add/feedback",
+        "title": "",
+        "params": {
+            "name": {"type": "string", "source": "post"},
+            "email": {"type": "string", "source": "post"},
+			"message": {"type": "string", "source": "post"}
+        },
+        "actions":[ "api_add_feedback" ],
+        "acl": [ ]
+	},
+	{
+		"uri": "feedback",
+        "title": "",
+        "params": {
+            "id": {"type": "string", "source": "get",  "regexp": "/feedback\\/(.+)/", "pos": 1}
+        },
+        "actions":[ "show_feedback" ],
+		"templates": {
+            "content": "feedback.htm",
+            "page": "page.htm"
+        },
+        "acl": [ "access", "adm" ]
+	},
+	{
+		"uri": "delete/feedback",
+		"title": "",
+		"params": {
+            "object": {"type": "string", "source": "get",  "regexp":"/(delete)\\/(.+)/" , "pos": 2},
+			"action": {"type": "string", "source": "get",  "regexp":"/(delete)\\/(.+)/", "pos": 1},
+			"id": {"type": "string", "source": "post"},
+			"confirm": {"type": "string", "source": "post"},
+			"comment": {"type": "string", "source": "post"},
+			"form_name": {"type": "string", "source": "post"}
+        },
+        "actions":[ "delete_feedback" ],
+		"acl" :[ "access", "adm" ]
+	}
+]}

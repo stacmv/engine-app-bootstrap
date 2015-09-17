@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+	<db name="users">
+		<table name="users">
+			<field name="id" type="autoincrement" required="required" />
+			<field name="login" label="Логин" type="string" required="required" form="add_user|edit_user" form_template="input" form_hint="Только латинские буквы и цифры"/>
+			<field name="pass" label="Пароль" type="string"  form="add_user|edit_user" form_template="input" form_hint="Не менее 6 символов" />
+			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
+			<field name="sex" label="Пол" type="string" required="required" form="add_user|edit_user|select_consultant" form_template="radio" form_values="tsv" />
+			<field name="birthdate" label="Дата рождения" type="string"  form="add_user|edit_user" form_template="input"  form_hint="дд.мм.гггг"/>
+			<field name="region" label="Регион" type="string"  form="add_user|edit_user" form_template="input" />
+			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user" form_template="input"  form_hint="Мобильный номер для контакта и SMS"/>
+			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user" form_template="input" />
+			
+			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user" form_template="checkboxes" form_values="tsv" />
+			<field name="manager" label="Персональный менеджер" type="number" show="parse" />
+            <field name="extra" type="json" label="Дополнительные сведения" />
+			<field name="created" type="timestamp" />
+			<field name="modified" type="timestamp" />
+			<field name="isDeleted" type="timestamp" />
+		</table>
+		<table name="ip">
+			<field name="id" type="autoincrement" required="required" />
+			<field name="user_id" type="number" required="required" />
+			<field name="login" type="string" required="required" />
+			<field name="ip" type="string" required="required" />
+			<field name="allowed" type="timestamp" />
+			<field name="extra" type="json" label="Дополнительные сведения" />
+			<field name="created" type="timestamp" />
+			<field name="modified" type="timestamp" />
+			<field name="isDeleted" type="timestamp" />
+		</table>
+		<table name="history">
+			<field name="db" type="string" />
+			<field name="id" type="autoincrement" required="required" />
+			<field name="objectId" type="number" required="required" />
+			<field name="subjectId" type="number" required="required" />
+			<field name="subjectIP" type="string" required="required" />
+			<field name="action" type="string" required="required" />
+			<field name="changes_from" type="string" />
+			<field name="changes_to" type="string" required="required" />
+			<field name="comment" type="string" />
+			<field name="timestamp" type="timestamp" />
+            
+			<field name="created" type="timestamp" />
+			<field name="modified" type="timestamp" />
+			<field name="isDeleted" type="timestamp" />
+		</table>
+	</db>
+</database>

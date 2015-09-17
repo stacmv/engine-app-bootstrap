@@ -1,0 +1,51 @@
+name	caption	caption_action
+id	ID		ID
+uri	ссылка	ссылку
+company	организация	название организации
+isDeleted	признак удаления
+db	база данных	базу данных
+objectId	ID объекта
+subjectId	ID субъекта
+account_id	ID аккаунта
+action	операция	наименование операции
+action_uid	код операции
+changes_what	поле БД
+changes_from	состояние до
+changes_to	состояние после
+comment	комментарий
+timestamp	временная метка	временную метку
+login	логин
+pass	пароль
+name	имя
+sex	пол
+phone	номер телефона
+email	e-mail
+partnerId	ID партнера
+isBot	признак бота
+acl	список прав доступа
+date	дата и время	дату-время
+offerId	ID офера
+userId	ID пользователя
+text	текст
+file	файл
+title	название
+description	описание
+base_price	базовая цена	базовую цену
+start_date	дата начала	дату начала
+end_date	дату окончания	дату окончания
+html	HTML-код
+logo	логотип
+db_accounts	аккаунт	аккаунт
+db_messages	сообщение	сообщение
+db_clients	Клиент	Клиента
+db_notes	заметка	заметку
+db_applications	заявка на регистрацию	заявку на регистрацию
+db_events	событие	событие
+db_events.attendees	участник встречи	участника встречи
+db_leads	заявка	заявку
+db_users	пользователь	пользователя
+db_users.ulogin	привязка соцсети	привязку соцсети
+db_mpgu.student_reports	отчет о практике	отчет о практике
+db_mpgu.comments	комментарий	комментарий
+db_mpgu.students	студент	данные студента
+db_mpgu.tutor_reports	аналитическая сводка	аналитическую сводку

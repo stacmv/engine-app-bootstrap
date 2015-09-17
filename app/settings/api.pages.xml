@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+	<page uri="api/save_email" comment="Saves subscriber email.">
+		<params>
+			<email><type>string</type><source>post</source></email>
+		</params>
+		<actions>api_save_email</actions>
+	</page>
+</pages>
