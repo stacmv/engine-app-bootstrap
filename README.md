@@ -13,5 +13,9 @@ Just add MVC: models (in app/functions/*.php), views (in /app/templates/*.htm), 
 _No one supposed to use this at the moment of writing._
 
 
+Usage: composer create-project optimit/engine-app-bootstrap _path_ 0.1.0
+
+
+
 
 
