@@ -11,16 +11,19 @@
 			<page>page.htm</page>
 		</templates>
 	</page>
-	<page uri="about" title="About">
+	<page uri="users" title="Пользователи">
 		<params>
 			<msg><type>json</type><source>session</source><required>true</required></msg>
+			<model><type>string</type><source>get</source><regexp>/(users)/</regexp><pos>1</pos></model>
 		</params>
-		<actions>show_page</actions>
+		<actions>show_data</actions>
 		<templates>
 			<msg>message.block.htm</msg>
-			<content>about.page.htm</content>
+			<content>data_list.htm</content>
 			<page>page.htm</page>
 		</templates>
+		<acl>access</acl>
+		<acl>adm|manager</acl>
 	</page>
 </pages>
 

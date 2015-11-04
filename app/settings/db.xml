@@ -7,13 +7,10 @@
 			<field name="pass" label="Пароль" type="password"  form="add_user|edit_user" form_template="input" form_hint="Не менее 6 символов" />
 			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
 			<field name="sex" label="Пол" type="string" required="required" form="add_user|edit_user|select_consultant" form_template="radio" form_values="tsv" />
-			<field name="birthdate" label="Дата рождения" type="string"  form="add_user|edit_user" form_template="input"  form_hint="дд.мм.гггг"/>
-			<field name="region" label="Регион" type="string"  form="add_user|edit_user" form_template="input" />
-			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user" form_template="input"  form_hint="Мобильный номер для контакта и SMS"/>
+			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user" form_template="input"  form_hint="Контактный телефонный номер"/>
 			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user" form_template="input" />
 			
-			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user" form_template="checkboxes" form_values="tsv" />
-			<field name="manager" label="Персональный менеджер" type="number" show="parse" />
+			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user" form_template="checkboxes" form_values="tsv" form_hint="Арендаторам выставить только 'Доступ к системе'" />
             <field name="extra" type="json" label="Дополнительные сведения" />
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />
