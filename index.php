@@ -15,7 +15,7 @@ if ( DEV_MODE ){
     ini_set("display_errors",1);
 };
 
-if ( defined("DO_DB_MIGRATE") && DO_DB_MIGRATE){
+if ( defined("DONT_START_ENGINE") && DONT_START_ENGINE){
     return;
 }else{
     include ENGINE_DIR . "engine.php";

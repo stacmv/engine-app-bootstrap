@@ -1,5 +1,5 @@
 <?php
-define("DO_DB_MIGRATE", true);
+define("DONT_START_ENGINE", true);
 
 include "index.php";
 
