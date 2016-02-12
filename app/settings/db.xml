@@ -3,14 +3,15 @@
 	<db name="users">
 		<table name="users">
 			<field name="id" type="autoincrement" required="required" />
-			<field name="login" label="Логин" type="string" required="required" form="add_user|edit_user" form_template="input" form_hint="Только латинские буквы и цифры"/>
-			<field name="pass" label="Пароль" type="password"  form="add_user|edit_user" form_template="input" form_hint="Не менее 6 символов" />
-			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
-			<field name="sex" label="Пол" type="string" required="required" form="add_user|edit_user|select_consultant" form_template="radio" form_values="tsv" />
-			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user" form_template="input"  form_hint="Контактный телефонный номер"/>
-			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user" form_template="input" />
+			<field name="login" label="Логин" type="string" required="required" form="add_user|edit_user|show_data" form_template="input" form_hint="Только латинские буквы и цифры"/>
+			<field name="pass" label="Пароль" type="password"  form="add_user|edit_user|show_data" form_template="input" form_hint="Не менее 6 символов" />
+			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user|show_data" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
+			<field name="title" label="Позиция (должность)" type="string" form="add_user|edit_user|show_data" form_template="input"  />
+			<field name="sex" label="Пол" type="string" required="required" form="add_user|edit_user" form_template="radio" form_values="tsv" />
+			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user|show_data" form_template="input"  form_hint="Контактный телефонный номер"/>
+			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user|show_data" form_template="input" />
 			
-			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user" form_template="checkboxes" form_values="tsv" form_hint="Арендаторам выставить только 'Доступ к системе'" />
+			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user|show_data" form_template="checkboxes" form_values="tsv" />
             <field name="extra" type="json" label="Дополнительные сведения" />
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />

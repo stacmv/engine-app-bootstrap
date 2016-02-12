@@ -1,0 +1,83 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "c05cedf18737d6c6beb973b0796d9d9b",
+    "content-hash": "9b04c61c6f3d64a6c502b7857b7a3ecc",
+    "packages": [
+        {
+            "name": "optimit/engine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stacmv/engine.git",
+                "reference": "9befba97ed65b88b21d64b1d4c05f9a7d371b800"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stacmv/engine/zipball/9befba97ed65b88b21d64b1d4c05f9a7d371b800",
+                "reference": "9befba97ed65b88b21d64b1d4c05f9a7d371b800",
+                "shasum": ""
+            },
+            "require": {
+                "optimit/glog_util": "dev-master",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Vyacheslav Matsnev",
+                    "email": "stacmv@goptimit.ru"
+                }
+            ],
+            "description": "Optimit framework for general PHP websites.",
+            "time": "2015-11-10 03:03:55"
+        },
+        {
+            "name": "optimit/glog_util",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stacmv/glog_util.git",
+                "reference": "7a2f4226759a3d07107075435eeb04fdc788f6c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stacmv/glog_util/zipball/7a2f4226759a3d07107075435eeb04fdc788f6c1",
+                "reference": "7a2f4226759a3d07107075435eeb04fdc788f6c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "glog_util.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Vyacheslav Matsnev",
+                    "email": "stacmv@optimit.ru"
+                }
+            ],
+            "description": "Glog utility library",
+            "time": "2015-11-03 08:34:50"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "optimit/engine": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
