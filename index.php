@@ -1,4 +1,4 @@
-<?php 
+<?php
 header("Content-type: text/html; charset=UTF-8");
 define ("APP_DIR", "app/");
 define ("INC_DIR", "vendor/optimit/");

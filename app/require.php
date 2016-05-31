@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "vendor/autoload.php";
 
 if ( !defined("ENGINE_DIR") ) die("Engine dir is not defined.");
