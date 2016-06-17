@@ -2,31 +2,21 @@
 <database>
 	<db name="users">
 		<table name="users">
-			<field name="id" type="autoincrement" required="required" />
-			<field name="login" label="Логин" type="string" required="required" form="add_user|edit_user|show_data" form_template="input" form_hint="Только латинские буквы и цифры"/>
-			<field name="pass" label="Пароль" type="password"  form="add_user|edit_user|show_data" form_template="input" form_hint="Не менее 6 символов" />
-			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user|show_data" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
-			<field name="title" label="Позиция (должность)" type="string" form="add_user|edit_user|show_data" form_template="input"  />
+			<field name="id" type="autoincrement" required="required" form="list_users"/>
+			<field name="login" label="Логин" type="string" required="required" form="add_user|edit_user|list_users" form_template="input" form_hint="Только латинские буквы и цифры"/>
+			<field name="pass" label="Пароль" type="password"  form="add_user|edit_user|list_users" form_template="input" form_hint="Не менее 6 символов" />
+			<field name="name" label="Имя" type="name" required="required" form="add_user|edit_user|list_users" form_template="input"  form_hint="Имя Фамилия или Имя Отчество Фамилия, например Иван Сидоров или Иван Петрович Сидоров" />
+			<field name="company" label="Компания (проект, сообщество)" type="string" form="add_user|edit_user|list_users" form_template="input"  />
+			<field name="title" label="Позиция (должность)" type="string" form="add_user|edit_user|list_users" form_template="input"  />
 			<field name="sex" label="Пол" type="string" required="required" form="add_user|edit_user" form_template="radio" form_values="tsv" />
-			<field name="phone" label="Телефон" type="phone" required="required" form="add_user|edit_user|show_data" form_template="input"  form_hint="Контактный телефонный номер"/>
-			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user|show_data" form_template="input" />
+			<field name="phone" label="Телефон" type="phone" required="required" validate="phone" form="add_user|edit_user|list_users" form_template="input"  form_hint="Контактный телефонный номер"/>
+			<field name="email" label="E-mail" type="email" required="required" form="add_user|edit_user|list_users" form_template="input" />
 			
-			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user|show_data" form_template="checkboxes" form_values="tsv" />
+			<field name="acl" label="Права доступа" type="list" required="required"  form="add_user|edit_user|list_users" form_template="checkboxes" form_values="tsv" />
             <field name="extra" type="json" label="Дополнительные сведения" />
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />
-			<field name="isDeleted" type="timestamp" />
-		</table>
-		<table name="ip">
-			<field name="id" type="autoincrement" required="required" />
-			<field name="user_id" type="number" required="required" />
-			<field name="login" type="string" required="required" />
-			<field name="ip" type="string" required="required" />
-			<field name="allowed" type="timestamp" />
-			<field name="extra" type="json" label="Дополнительные сведения" />
-			<field name="created" type="timestamp" />
-			<field name="modified" type="timestamp" />
-			<field name="isDeleted" type="timestamp" />
+			<field name="deleted" type="timestamp" />
 		</table>
 		<table name="history">
 			<field name="db" type="string" />
@@ -42,7 +32,7 @@
             
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />
-			<field name="isDeleted" type="timestamp" />
+			<field name="deleted" type="timestamp" />
 		</table>
 	</db>
 </database>
