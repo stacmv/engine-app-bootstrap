@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-        "optimit/engine": "dev-master"
+        "optimit/engine": "3.*"
     }
 }
