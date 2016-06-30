@@ -1,5 +1,5 @@
 name	caption	caption_action
-id	ID		ID
+id	ID	ID
 uri	ссылка	ссылку
 company	организация	название организации
 isDeleted	признак удаления
