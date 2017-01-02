@@ -10,8 +10,7 @@ include "index.php";
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <base href="../../">
-    <link rel="stylesheet" href="assets/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" href="assets/bs2/css/bootstrap-combined.min.css">
 </head>
 <body>
 <div class="container">
@@ -19,11 +18,10 @@ include "index.php";
 
 $dbs = glob(DATA_DIR . "*.db");
 
-foreach($dbs as $db_file){
-    $db_name = pathinfo($db_file,PATHINFO_FILENAME);
-    
-    echo "<b>Checking '".$db_name."' ...</b><br>";
-    db_check_schema($db_name);
+
+foreach(db_get_tables_list() as $db_table){
+    echo "<b>Checking '".$db_table."' ...</b><br>";
+    db_check_schema($db_table);
     echo "<b>Done.<br>";
 };
 echo "Done all.";
