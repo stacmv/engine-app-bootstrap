@@ -19,4 +19,5 @@ if ( defined("DONT_START_ENGINE") && DONT_START_ENGINE){
     return;
 }else{
     include ENGINE_DIR . "engine.php";
+    RUN();
 };
