@@ -1,8 +1,10 @@
 <?php
-require_once "vendor/autoload.php";
-
 if ( !defined("ENGINE_DIR") ) die("Engine dir is not defined.");
 if ( !defined("APP_DIR") ) die("App dir is not defined.");
+
+require_once APP_DIR . "../vendor/autoload.php";
+
+
 
 $_SITE = array();
 $CFG = array();
@@ -13,7 +15,7 @@ require_once APP_DIR . "settings/config.php";
 spl_autoload_register(function ($class_name){$class_file =  APP_DIR . "classes/" . str_replace("\\", DIRECTORY_SEPARATOR , $class_name) . ".class.php"; if (file_exists($class_file)){ require_once $class_file; }});
 
 // Base dir
-$CFG["URL"]["base"] = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["base"],-1)!="/") $CFG["URL"]["base"] .="/"; 
+$CFG["URL"]["base"] = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["base"],-1)!="/") $CFG["URL"]["base"] .="/";
 $CFG["URL"]["root"] = dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["root"],-1)!="/") $CFG["URL"]["root"] .="/";
 
 
@@ -24,12 +26,12 @@ if (strpos($CFG["URL"]["base"], "http://localhost/") === 0){
 }else{
     $sub_domain = strtok($_SERVER["HTTP_HOST"],".");
     if ( ! $sub_domain ) $sub_domain = $default_site;
-    
+
     if ($sub_domain == "dev"){
         define("DEV_MODE", true);
         $sub_domain = $default_site;
     }else{
-        define("DEV_MODE", false); 
+        define("DEV_MODE", false);
     }
 };
 
@@ -53,17 +55,21 @@ $tmp = glob(APP_DIR . "functions/*.php");
 foreach($tmp as $file_name) $app_functions[ basename($file_name,".php") ] = $file_name;
 unset($tmp, $file_name);
 
+// Modules functions
+require_once ENGINE_DIR . "modules_support.php";
+$modules_functions = engine_modules_functions();
+
 // Site functions
 $site_functions = array();
 if (SITES_DIR != APP_DIR){
-    $tmp = glob(SITE_DIR  . "functions/*.php");
+    $tmp = glob(SITES_DIR  . "functions/*.php");
     foreach($tmp as $file_name) $site_functions[ basename($file_name,".php") ] = $file_name;
     unset($tmp, $file_name);
 };
 
 
 // Determine wich functions to load
-$functions_to_load = array_merge($engine_functions, $app_functions, $site_functions);
+$functions_to_load = array_merge($engine_functions, $app_functions, $modules_functions, $site_functions);
 
 
 // Load functions
@@ -79,7 +85,7 @@ if ($CFG_ini == false) die("Code CFG INI");
 $CFG = array_merge_recursive($CFG, $CFG_ini);
 
 //
- 
+
 if (function_exists("get_site")){
     $_SITE = get_site($sub_domain);
 }else{
