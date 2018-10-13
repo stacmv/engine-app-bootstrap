@@ -15,8 +15,10 @@ require_once APP_DIR . "settings/config.php";
 spl_autoload_register(function ($class_name){$class_file =  APP_DIR . "classes/" . str_replace("\\", DIRECTORY_SEPARATOR , $class_name) . ".class.php"; if (file_exists($class_file)){ require_once $class_file; }});
 
 // Base dir
-$CFG["URL"]["base"] = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["base"],-1)!="/") $CFG["URL"]["base"] .="/";
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$CFG["URL"]["base"] = $protocol . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["base"],-1)!="/") $CFG["URL"]["base"] .="/";
 $CFG["URL"]["root"] = dirname($_SERVER["PHP_SELF"]); if (substr($CFG["URL"]["root"],-1)!="/") $CFG["URL"]["root"] .="/";
+
 
 
 
