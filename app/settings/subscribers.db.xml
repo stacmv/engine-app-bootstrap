@@ -5,12 +5,12 @@
 			<field name="id" type="autoincrement" required="required" />
 			<field name="email" label="E-mail" type="string" required="required" />
 			<field name="comment" label="Комментарий" type="string" />
-	
-			
+
+
 			<field name="extra" type="json" label="Дополнительные сведения" />
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />
-			<field name="isDeleted" type="timestamp" />
+			<field name="deleted" type="timestamp" />
 		</table>
 		<table name="history">
 			<field name="db" type="string" />
@@ -23,10 +23,10 @@
 			<field name="changes_to" type="string" required="required" />
 			<field name="comment" type="string" />
 			<field name="timestamp" type="timestamp" />
-            
+
 			<field name="created" type="timestamp" />
 			<field name="modified" type="timestamp" />
-			<field name="isDeleted" type="timestamp" />
+			<field name="deleted" type="timestamp" />
 		</table>
 	</db>
 </database>
